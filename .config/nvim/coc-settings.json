@@ -1,0 +1,17 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "dart"
+  ],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "diagnostic.enableHighlightLineNumber": true,
+  "suggest.enablePreview": true,
+  "flutter.provider.hot-reload": true,
+  "python.jediEnabled": false,
+  "elixirLS.dialyzerEnabled": false,
+  "elixir.pathToElixirLS": "~/.local/elixir-ls/language_server.sh"
+}
