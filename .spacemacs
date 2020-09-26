@@ -85,18 +85,16 @@ This function should only modify configuration layer settings."
           lsp-ui-sideline-enable nil
           lsp-ui-doc-enable nil)
 
-     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-     ;; (org :variables                                    ;;
-     ;;      org-want-todo-bindings t                      ;;
-     ;;      org-projectile-file "~/Dropbox/org/todos.org" ;;
-     ;;      org-enable-org-journal-support t              ;;
-     ;;      org-journal-dir "~/org/journal/"              ;;
-     ;;      org-journal-file-format "%Y-%m-%d.org"        ;;
-     ;;      org-journal-date-prefix "#+TITLE: "           ;;
-     ;;      org-journal-date-format "%A, %d %B %Y"        ;;
-     ;;      org-journal-time-prefix "* "                  ;;
-     ;;      org-journal-time-format "")                   ;;
-     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+     (org :variables
+          org-want-todo-bindings t
+          org-projectile-file "~/org/todos.org"
+          org-enable-org-journal-support t
+          org-journal-dir "~/org/journal/"
+          org-journal-file-format "%Y-%m-%d.org"
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-date-format "%A, %d %B %Y"
+          org-journal-time-prefix "* "
+          org-journal-time-format "")
 
      (python :variables
             python-backend 'lsp)
@@ -252,7 +250,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(minimal
+   dotspacemacs-themes '(base16-material
+                         base16-grayscale-dark
+                         minimal
                          minimal-light
                          base16-material
                          spacemacs-dark
@@ -274,7 +274,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka Curly"
-                               :size 13
+                               :size 14
                                :weight semibold
                                :width normal)
 
@@ -568,13 +568,13 @@ before packages are loaded."
 
   ;; Org Mode Configutation
   (with-eval-after-load 'org
-    (setq org-directory "~/Dropbox/org")
+    (setq org-directory "~/org")
     (add-hook 'org-mode-hook (lambda ()
                                (defadvice org-clock-in (after org-clock-in-after activate)(save-buffer))
                                (defadvice org-clock-out (after org-clock-out-after activate)(save-buffer))))
     (setq org-clock-out-when-done t)
     (setq org-todo-keywords '((sequence "TODO" "|" "DONE")))
-    (setq org-agenda-files (quote("~/Dropbox/org" "~/Dropbox/org/projects" "~/Dropbox/org/learning" "~/Dropbox/org/roam"))))
+    (setq org-agenda-files (quote("~/org"))))
 
   ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
   (add-hook 'elixir-mode-hook
@@ -598,11 +598,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   (quote
-    ("/home/aswinmohanme/Dropbox/org/applications.org" "/home/aswinmohanme/Dropbox/org/capture.org" "/home/aswinmohanme/Dropbox/org/commitments.org" "/home/aswinmohanme/Dropbox/org/gratefully_recieved_list.org" "/home/aswinmohanme/Dropbox/org/home.org" "/home/aswinmohanme/Dropbox/org/plan_of_action.org" "/home/aswinmohanme/Dropbox/org/talks.org" "/home/aswinmohanme/Dropbox/org/todos.org" "/home/aswinmohanme/Dropbox/org/will_have_list.org" "/home/aswinmohanme/Dropbox/org/projects/10000_hours.org" "/home/aswinmohanme/Dropbox/org/projects/carbon_zero.org" "/home/aswinmohanme/Dropbox/org/projects/justknowme.org" "/home/aswinmohanme/Dropbox/org/projects/kerala_rescue_app.org" "/home/aswinmohanme/Dropbox/org/projects/lessphone.org" "/home/aswinmohanme/Dropbox/org/projects/prindus.org" "/home/aswinmohanme/Dropbox/org/projects/projects.org" "/home/aswinmohanme/Dropbox/org/projects/vp_scholarship.org" "/home/aswinmohanme/Dropbox/org/learning/algorithms.org" "/home/aswinmohanme/Dropbox/org/learning/assembly.org" "/home/aswinmohanme/Dropbox/org/learning/college.org" "/home/aswinmohanme/Dropbox/org/learning/ctci.org" "/home/aswinmohanme/Dropbox/org/learning/elixir.org" "/home/aswinmohanme/Dropbox/org/learning/flutter.org" "/home/aswinmohanme/Dropbox/org/learning/generic.org" "/home/aswinmohanme/Dropbox/org/learning/interpreter.org" "/home/aswinmohanme/Dropbox/org/learning/kotlin.org" "/home/aswinmohanme/Dropbox/org/learning/learning.org" "/home/aswinmohanme/Dropbox/org/learning/programming_pearls.org" "/home/aswinmohanme/Dropbox/org/learning/rubikscubeblind.org" "/home/aswinmohanme/Dropbox/org/learning/violin.org")))
+   '("/home/aswinmohanme/org/test.org" "/home/aswinmohanme/org/todos.org"))
  '(package-selected-packages
-   (quote
-    (tern yapfify yaml-mode xterm-color x86-lookup ws-butler winum which-key web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline powerline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters racket-mode faceup pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox spinner orgit org-projectile org-category-capture org-present org-pomodoro evil-visual-mark-mode org-mime org-download org-bullets open-junk-file ob-elixir neotree nasm-mode multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint json-mode js2-refactor js-doc indent-guide hydra hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode graphviz-dot-mode google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-popup flyspell-correct-helm flycheck-mix flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump diminish define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler bind-key base16-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alert alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+   '(tern yapfify yaml-mode xterm-color x86-lookup ws-butler winum which-key web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline powerline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters racket-mode faceup pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox spinner orgit org-projectile org-category-capture org-present org-pomodoro evil-visual-mark-mode org-mime org-download org-bullets open-junk-file ob-elixir neotree nasm-mode multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint json-mode js2-refactor js-doc indent-guide hydra hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode graphviz-dot-mode google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-popup flyspell-correct-helm flycheck-mix flycheck-credo flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump diminish define-word cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler bind-key base16-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile alert alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))
  '(standard-indent 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -25,11 +25,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sleuth'
 Plug 'wakatime/vim-wakatime'
 
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'wlangstroth/vim-racket'
-
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
@@ -48,7 +43,8 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-texlab',
   \ 'coc-tailwindcss',
-  \ 'coc-marketplace'
+  \ 'coc-marketplace',
+  \ 'coc-spell-checker'
 \ ]
 
 " =====================
@@ -305,7 +301,7 @@ vnoremap <silent><expr> <up> coc#util#has_float() ? <SID>coc_float_scroll(0) : "
 " NETRW
 let g:netrw_liststyle=3
 let g:netrw_banner=0
-let g:netrw_winsize=25
+let g:netrw_winsize=15
 
 " MIX FORMAT
 let g:mix_format_on_save=1
