@@ -44,7 +44,8 @@ let g:coc_global_extensions = [
   \ 'coc-texlab',
   \ 'coc-tailwindcss',
   \ 'coc-marketplace',
-  \ 'coc-spell-checker'
+  \ 'coc-spell-checker',
+  \ 'coc-solargraph'
 \ ]
 
 " =====================
@@ -89,12 +90,12 @@ set background=dark
 colorscheme gruvbox
 
 " NO COLOR
-syntax off
+" syntax off
 set nohlsearch
 set t_Co=256 
 
 " BACKGROUND COLOR
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " =====================
 " PLUGIN CONFIG
