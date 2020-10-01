@@ -12,7 +12,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -38,7 +38,7 @@
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-dynamic_padding: true
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -60,7 +60,7 @@ dynamic_padding: true
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  # startup_mode: Maximized
+  startup_mode: Fullscreen
 
   # Window title
   #title: Alacritty
@@ -96,7 +96,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Iosevka Curly
+    family: Iosevka Term Curly
 
     # The `style` can be specified to pick a specific face.
     style: Medium
@@ -111,6 +111,7 @@ font:
 
     # The `style` can be specified to pick a specific face.
     style: Medium
+
 
   # Italic font face
   #italic:
@@ -135,7 +136,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 10.6
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -154,7 +155,7 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  # use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -642,8 +643,6 @@ key_bindings:
   #- { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
 
   # (Windows, Linux, and BSD only)
-  #- { key: V,        mods: Control|Shift,           action: Paste            }
-  #- { key: C,        mods: Control|Shift,           action: Copy             }
   #- { key: F,        mods: Control|Shift,           action: SearchForward    }
   #- { key: B,        mods: Control|Shift,           action: SearchBackward   }
   #- { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
@@ -653,6 +652,9 @@ key_bindings:
   #- { key: Add,      mods: Control,                 action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,                 action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,                 action: DecreaseFontSize }
+  - { key: V,        mods: Control|Shift,           action: Paste            }
+  - { key: C,        mods: Control|Shift,           action: Copy             }
+  - { key: N,         mods: Control|Shift,           action: SpawnNewInstance }
   - { key: F11,       action: ToggleFullscreen }
 
   # (Windows only)
@@ -672,7 +674,6 @@ key_bindings:
   #- { key: M,      mods: Command,            action: Minimize         }
   #- { key: Q,      mods: Command,            action: Quit             }
   #- { key: W,      mods: Command,            action: Quit             }
-  #- { key: N,      mods: Command,            action: SpawnNewInstance }
   #- { key: F,      mods: Command|Control,    action: ToggleFullscreen }
   #- { key: F,      mods: Command,            action: SearchForward    }
   #- { key: B,      mods: Command,            action: SearchBackward   }

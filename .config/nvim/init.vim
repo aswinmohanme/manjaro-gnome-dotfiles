@@ -303,6 +303,7 @@ vnoremap <silent><expr> <up> coc#util#has_float() ? <SID>coc_float_scroll(0) : "
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_winsize=15
+let g:netrw_browse_split=4
 
 " MIX FORMAT
 let g:mix_format_on_save=1
