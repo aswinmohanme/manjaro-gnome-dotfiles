@@ -24,6 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sleuth'
 Plug 'wakatime/vim-wakatime'
+Plug 'preservim/nerdtree'
 
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
@@ -299,17 +300,51 @@ inoremap <silent><expr> <up> coc#util#has_float() ? <SID>coc_float_scroll(0) : "
 vnoremap <silent><expr> <down> coc#util#has_float() ? <SID>coc_float_scroll(1) : "\<down>"
 vnoremap <silent><expr> <up> coc#util#has_float() ? <SID>coc_float_scroll(0) : "\<up>"
 
-" NETRW
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_winsize=15
-let g:netrw_browse_split=4
-
 " MIX FORMAT
 let g:mix_format_on_save=1
 
 " EMMET
 let g:user_emmet_leader_key=','
+
+" ========
+" NERDTree
+" ========
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+function! CheckIfCurrentBufferIsFile()
+  return strlen(expand('%')) > 0
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && CheckIfCurrentBufferIsFile() && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufRead * call SyncTree()
+
+function! ToggleTree()
+  if CheckIfCurrentBufferIsFile()
+    if IsNERDTreeOpen()
+      NERDTreeClose
+    else
+      NERDTreeFind
+    endif
+  else
+    NERDTree
+  endif
+endfunction
+
+" open NERDTree with ctrl + n
+nnoremap <leader>pt :call ToggleTree()<CR>
+" ========
 
 " =====================
 " MAPPING
@@ -359,24 +394,6 @@ set rtp+=/usr/bin/fzf
 nnoremap <leader>pf :GFiles --cached --others --exclude-standard<CR>
 nnoremap <leader>fr :History<CR>
 
-" Toggle Netrw
-let g:NetrwIsOpen=0
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-nnoremap <leader>pt :call ToggleNetrw()<CR>
 
 " Setup Git
 nnoremap <leader>gs :Git<CR>
