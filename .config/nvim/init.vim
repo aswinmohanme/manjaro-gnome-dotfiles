@@ -46,7 +46,7 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-marketplace',
   \ 'coc-spell-checker',
-  \ 'coc-solargraph'
+  \ 'coc-solargraph',
 \ ]
 
 " =====================
