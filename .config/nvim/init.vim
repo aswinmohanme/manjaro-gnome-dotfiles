@@ -29,6 +29,8 @@ Plug 'preservim/nerdtree'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
+Plug 'maxmellon/vim-jsx-pretty'
+
 Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
@@ -94,9 +96,6 @@ colorscheme gruvbox
 " syntax off
 set nohlsearch
 set t_Co=256 
-
-" BACKGROUND COLOR
-" hi Normal guibg=NONE ctermbg=NONE
 
 " =====================
 " PLUGIN CONFIG
@@ -402,3 +401,13 @@ nnoremap <leader>fed :e ~/.config/nvim/init.vim<CR>
 
 " Open Terminal
 nnoremap <leader>' :term<CR>
+
+" =================
+" LANGUAGE SPECIFIC
+" =================
+" JAVASCRIPT
+" ==========
+" FORMAT FILE ON START
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
