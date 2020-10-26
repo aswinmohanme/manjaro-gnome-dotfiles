@@ -46,8 +46,8 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-marketplace',
   \ 'coc-spell-checker',
-  \ 'coc-solargraph',
-\ ]
+  \ 'coc-html'
+  \ ]
 
 " =====================
 " EDITING CONFIGURATION
@@ -393,7 +393,6 @@ nnoremap <leader>wd :q<CR>
 set rtp+=/usr/bin/fzf
 nnoremap <leader>pf :GFiles --cached --others --exclude-standard<CR>
 nnoremap <leader>fr :History<CR>
-
 
 " Setup Git
 nnoremap <leader>gs :Git<CR>

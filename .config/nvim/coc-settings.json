@@ -5,8 +5,7 @@
     "typescript",
     "typescriptreact",
     "dart",
-    "html",
-    "eelixir"
+    "html"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true,
@@ -15,5 +14,5 @@
   "flutter.provider.hot-reload": true,
   "python.jediEnabled": false,
   "elixirLS.dialyzerEnabled": false,
-  "elixir.pathToElixirLS": "~/.local/elixir-ls/language_server.sh",
+  "elixir.pathToElixirLS": "~/.local/elixir-ls/language_server.sh"
 }
