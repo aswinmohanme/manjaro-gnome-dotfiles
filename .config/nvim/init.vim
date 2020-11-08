@@ -17,6 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'machakann/vim-sandwich'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -29,6 +30,7 @@ Plug 'preservim/nerdtree'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
+Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'morhetz/gruvbox'
@@ -48,7 +50,8 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-marketplace',
   \ 'coc-spell-checker',
-  \ 'coc-html'
+  \ 'coc-html',
+  \ 'coc-prettier',
   \ ]
 
 " =====================
@@ -389,7 +392,6 @@ nnoremap <leader>w- :split<CR>
 nnoremap <leader>wd :q<CR>
 
 " File Mangement
-set rtp+=/usr/bin/fzf
 nnoremap <leader>pf :GFiles --cached --others --exclude-standard<CR>
 nnoremap <leader>fr :History<CR>
 
