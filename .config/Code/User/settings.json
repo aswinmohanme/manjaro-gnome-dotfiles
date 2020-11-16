@@ -1310,4 +1310,5 @@
     },
     "window.menuBarVisibility": "toggle",
     "notebook.kernelProviderAssociations": [],
+    "editor.fontSize": 13,
 }

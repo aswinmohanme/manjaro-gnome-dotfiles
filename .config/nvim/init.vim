@@ -33,6 +33,8 @@ Plug 'mhinz/vim-mix-format'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
+Plug 'dart-lang/dart-vim-plugin'
+
 Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
@@ -355,7 +357,7 @@ nnoremap <leader>pt :call ToggleTree()<CR>
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR
+nnoremap <M-l>    :vertical resize +2<CR>
 
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
@@ -390,6 +392,8 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>w/ :vs<CR>
 nnoremap <leader>w- :split<CR>
 nnoremap <leader>wd :q<CR>
+
+nnoremap <leader>w= :wincmd =<CR>
 
 " File Mangement
 nnoremap <leader>pf :GFiles --cached --others --exclude-standard<CR>
