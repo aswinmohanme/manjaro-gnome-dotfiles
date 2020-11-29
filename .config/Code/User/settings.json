@@ -1292,7 +1292,7 @@
     "explorer.confirmDelete": false,
     "terminal.integrated.rendererType": "dom",
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.colorTheme": "Core (Dark)",
     "workbench.activityBar.visible": false,
     "workbench.list.automaticKeyboardNavigation": false,
     "window.zoomLevel": 0,
@@ -1310,5 +1310,4 @@
     },
     "window.menuBarVisibility": "toggle",
     "notebook.kernelProviderAssociations": [],
-    "editor.fontSize": 13,
 }

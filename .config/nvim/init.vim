@@ -31,7 +31,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'dart-lang/dart-vim-plugin'
 
@@ -98,7 +99,7 @@ set background=dark
 colorscheme gruvbox
 
 " NO COLOR
-" syntax off
+syntax off
 set nohlsearch
 set t_Co=256 
 
@@ -309,6 +310,10 @@ let g:mix_format_on_save=1
 
 " EMMET
 let g:user_emmet_leader_key=','
+
+" Typescript React Setup
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
 
 " ========
 " NERDTree
