@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      major-modes
      markdown
      racket
+     react
      ruby-on-rails
      scheme
      syntax-checking
@@ -75,6 +76,7 @@ This function should only modify configuration layer settings."
            html-enable-lsp t)
 
      (javascript :variables
+                 node-add-modules-path t
                  javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
                  javascript-fmt-on-save t
@@ -112,6 +114,12 @@ This function should only modify configuration layer settings."
      (spell-checking :variables
                      spell-checking-enable-by-default nil
                      enable-flyspell-auto-completion t)
+
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 javascript-backend 'lsp
+                 typescript-fmt-tool 'prettier
+                 typescript-linter 'eslint)
 
      (vue :variables
           vue-backend 'lsp)
@@ -275,7 +283,7 @@ It should only modify the values of Spacemacs settings."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka Curly"
                                :size 13
-                               :weight medium
+                               :weight semibold
                                :width normal)
 
    ;; The leader key (default "SPC")
@@ -557,7 +565,7 @@ before packages are loaded."
   (setq create-lockfiles nil)
 
   ;; Disable all Font Colors
-  (global-font-lock-mode -1)
+  ;; (global-font-lock-mode -1)
 
   ;; Web Mode Indentation
   (setq-default

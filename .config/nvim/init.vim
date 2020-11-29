@@ -32,7 +32,7 @@ Plug 'mhinz/vim-mix-format'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'dart-lang/dart-vim-plugin'
 
@@ -99,7 +99,7 @@ set background=dark
 colorscheme gruvbox
 
 " NO COLOR
-syntax off
+syntax on
 set nohlsearch
 set t_Co=256 
 
